@@ -11,18 +11,36 @@
 
 <?php
 
-class ShoppingCard{
+class Shop{
+    private $name1; //только внутри самого класса
 
+
+    public function naming(){
+        $this ->name1 = "Adidas";
+        echo $this->name1;
+    }
 }
 
-$product1 = new ShoppingCard();
-$product2 = new ShoppingCard();
-$product3  = new ShoppingCard();
-
-var_dump($product1);
+$product = new Shop;
+$product->naming();
 echo "<br>";
-var_dump($product1 instanceof ShoppingCard);//проверяет, является ли данный обхект экземпляром какого-то класса переменная instanceof класс; возвращает значение true false
+class User{
+    public $name= "Имя";
+    public $password= "Пароль";
+    public $email= "Емэйл";
+    public $city= "Город";
+}
 
+$admin = new User();
+$user1 = new User();
+$admin->name = "Леха";
+$user1->name = "Андрей";
+echo $admin->name;
+echo $user1->name;
+
+
+$user1->surname = "Ivanov";
+echo $user1->surname;
 
 
 ?>
