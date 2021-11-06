@@ -12,48 +12,66 @@
 <?php
 
 class User{
-    // public $name;
-    // public $password;
-    // public $email;
-    // public $city;
+    public $name;
+    public $password;
+    public $email;
+    public $city;
 
-    // public function getName(){
-    //     echo $this->name;
-    //     $this->test();       
-    // }
-
-    // public function test(){
-    //     echo 'Test';
-    // }
-
-    private static $name;
-
-    public static function setName($name1){
-        self::$name = $name1;
+    //konstruktor
+    function __construct($name,$password,$email,$city)
+    {
+     $this->name=$name;
+     $this->password=$password;
+     $this->email=$email;
+     $this->city=$city;
     }
-    public static function getName(){
-        return self::$name;
+
+    function getInfo(){
+
+        $information= "{$this->name}"." "."{$this->password}"." "."{$this->email}"." "."{$this->city}";
+        return $information;
     }
 
 }
-User::setName('Ivan');
-echo User::getName();
 
-// $user1 = new User;
-// $user1->name = 'Aleksei';
-// $user1->getName();
+$user1 = new User("Alex","123456","dsfd@sd.com","Narva");
+echo $user1->getInfo();
 
-// $user2 = new User;
-// $user2->name = 'Ivan';
-// $user2->getName();
+echo "<br>";
 
+class Moderator extends User{
+    public $info;
+    public $rights;
 
+    function __construct($name,$password,$email,$city, $info, $rights)
+    {
+        parent:: __construct($name,$password,$email,$city);
+        $this->info=$info;
+        $this->rights=$rights;
+    }
+    function getInfo(){
+        $information= parent::getInfo();
+        $information .= " "."{$this->info}"." "."{$this->rights}";
+        return $information;
+    }
 
+} 
+$moder = new Moderator("Ivan", "sate28735","dsvd@dcsd.ee","Tallinn", "Moderator","tru");
+echo $moder->getInfo();
+echo "<br>";
+class Test {
+    protected $info; //можем еги использовать но не можем его менять
+}
 
-
+class Test2 extends Test{
+    public function test(){
+        $this->info="info";
+        echo $this->info;
+    }
+}
+$test2 = new Test2;
+$test2->test();
+$test2->info="information";
 ?>
-
-
-
 </body>
 </html>
