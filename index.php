@@ -11,49 +11,43 @@
 
 <?php
 
-// class Shop{
-//     private $name1; //только внутри самого класса
+// class User{
+//     public $name;
+//     public $password;
+//     public $email;
+//     public $city;
 
-
-//     public function naming(){
-//         $this ->name1 = "Adidas";
-//         echo $this->name1;
+//     //konstruktor
+//     function __construct($name,$password,$email,$city)
+//     {
+//      $this->name=$name;
+//      $this->password=$password;
+//      $this->email=$email;
+//      $this->city=$city;
 //     }
+
+//     function getInfo(){
+//         return "{$this->name}"."{$this->password}"."{$this->email}"."{$this->city}";
+//     }
+
 // }
 
-// $product = new Shop;
-// $product->naming();
-// echo "<br>";
-class User{
-    public $name= "Имя";
-    public $password= "Пароль";
-    public $email= "Емэйл";
-    public $city= "Город";
-
-    // public function Hello(){
-    //     echo "Hello {$this->name}";
-    // }
-
-    function getInfo(){
-        return "{$this->name}"." "."{$this->surname}";
+// $user1 = new User("Alex","123456","dsfd@sd.com","Narva");
+// echo $user1->getInfo();
+class DestractableClass{
+    function __construct()
+    {
+        print "Konstruktor";
+        $this->name = "DestractableClass";
     }
 
+    function __destruct()
+    {
+        print "Uni4towenie". $this->name;
+    }
 }
-$admin = new User();
-$admin-> name="Aleksej";
-$admin-> surname="Ivanov";
-echo "Kasutaja: {$admin->getInfo()}";
+$obj =new DestractableClass;
 
-// $admin = new User();
-// $user1 = new User();
-// $admin->name = "Леха";
-// $user1->name = "Андрей";
-// echo $admin->name;
-// echo $user1->name;
-
-
-// $user1->surname = "Ivanov";
-// echo $user1->surname;
 
 
 ?>
