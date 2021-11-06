@@ -11,36 +11,49 @@
 
 <?php
 
-class Shop{
-    private $name1; //только внутри самого класса
+// class Shop{
+//     private $name1; //только внутри самого класса
 
 
-    public function naming(){
-        $this ->name1 = "Adidas";
-        echo $this->name1;
-    }
-}
+//     public function naming(){
+//         $this ->name1 = "Adidas";
+//         echo $this->name1;
+//     }
+// }
 
-$product = new Shop;
-$product->naming();
-echo "<br>";
+// $product = new Shop;
+// $product->naming();
+// echo "<br>";
 class User{
     public $name= "Имя";
     public $password= "Пароль";
     public $email= "Емэйл";
     public $city= "Город";
+
+    // public function Hello(){
+    //     echo "Hello {$this->name}";
+    // }
+
+    function getInfo(){
+        return "{$this->name}"." "."{$this->surname}";
+    }
+
 }
-
 $admin = new User();
-$user1 = new User();
-$admin->name = "Леха";
-$user1->name = "Андрей";
-echo $admin->name;
-echo $user1->name;
+$admin-> name="Aleksej";
+$admin-> surname="Ivanov";
+echo "Kasutaja: {$admin->getInfo()}";
+
+// $admin = new User();
+// $user1 = new User();
+// $admin->name = "Леха";
+// $user1->name = "Андрей";
+// echo $admin->name;
+// echo $user1->name;
 
 
-$user1->surname = "Ivanov";
-echo $user1->surname;
+// $user1->surname = "Ivanov";
+// echo $user1->surname;
 
 
 ?>
