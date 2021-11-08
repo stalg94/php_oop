@@ -11,36 +11,13 @@
 
 <?php
 
-class Shop{
-    private $name1; //только внутри самого класса
+  class user{
+const SOME_CONST = 314; //нельзя переопределить вне класса
+
+  }
+echo user::SOME_CONST;
 
 
-    public function naming(){
-        $this ->name1 = "Adidas";
-        echo $this->name1;
-    }
-}
-
-$product = new Shop;
-$product->naming();
-echo "<br>";
-class User{
-    public $name= "Имя";
-    public $password= "Пароль";
-    public $email= "Емэйл";
-    public $city= "Город";
-}
-
-$admin = new User();
-$user1 = new User();
-$admin->name = "Леха";
-$user1->name = "Андрей";
-echo $admin->name;
-echo $user1->name;
-
-
-$user1->surname = "Ivanov";
-echo $user1->surname;
 
 
 ?>
