@@ -10,25 +10,31 @@
 <body>
 
 <?php
-
-//abstract - не могут быть созданы экземпляры чтобы  моделировать те или иные сущности
-
-abstract class User{
-    public $name;
-    public $status;
-
-    abstract function getStatus();
+//interface - шаблоны, струкруты, которые описывают стандарты и методы которые должен содержать класс
+interface FirstInterface{
+    public function getName();
 }
 
-class Admin extends User{//дочерний класс
-    function getStatus(){
-        echo "Admin";
+interface SecondInterface{
+    public function GetStatus();
+}
+interface ThirdInterface extends FirstInterface, SecondInterface{
+    public function GetStatus();
+}
+class Test implements FirstInterface, SecondInterface{
+    public $name = "Alexey";
+    public $status = "Admin";
+    public function getName(){
+        echo $this->name;
+    }
+    public function GetStatus(){
+        echo $this->status;
     }
 }
 
-$user = new Admin;
-$user->getStatus();
-
+$user1 = new Test;
+$user1->getName();
+$user1->GetStatus();
 
 ?>
 </body>
