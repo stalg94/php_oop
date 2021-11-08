@@ -10,26 +10,44 @@
 <body>
 
 <?php
-//трейт - Трейт это механизм обеспечения повторного использования кода.
+class User{
 
+    private $name;
+    private $city;
+    private $id;
+    function  __construct($name,$city)
+    {
+        $this->name=$name;
+        $this->city=$city;
+    }
+    function setId($id){
+        $this->id=$id;
+    }
 
-trait Hello{
-    public function sayHello(){
-        echo "Hello ";
+    public function __clone(){
+        $this->id=0;
+
     }
 }
-trait World{
-    public function sayWorld(){
-        echo "World ";
+$user1 = new User("Alexey","Kiev");
+$user1->setId(365);
+$user2 = clone $user1;
+var_dump($user2);
+
+
+class GetSet{
+    private $number = 1;
+
+    public function __get($name){
+        echo "You get {$name}";
+    }
+    public function __set($name, $val){
+        echo "You set {$name} to {$val}";
     }
 }
-class myHelloWorld  {
-    use Hello, World;
-}
-
-$obj = new myHelloWorld();
-$obj->sayHello();
-$obj->sayWorld();
+$obj = new GetSet();
+echo $obj->number;
+echo $obj->number = 689;
 
 
 ?>
