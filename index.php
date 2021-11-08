@@ -10,31 +10,27 @@
 <body>
 
 <?php
-//interface - шаблоны, струкруты, которые описывают стандарты и методы которые должен содержать класс
-interface FirstInterface{
-    public function getName();
-}
+//трейт - Трейт это механизм обеспечения повторного использования кода.
 
-interface SecondInterface{
-    public function GetStatus();
-}
-interface ThirdInterface extends FirstInterface, SecondInterface{
-    public function GetStatus();
-}
-class Test implements FirstInterface, SecondInterface{
-    public $name = "Alexey";
-    public $status = "Admin";
-    public function getName(){
-        echo $this->name;
-    }
-    public function GetStatus(){
-        echo $this->status;
+
+trait Hello{
+    public function sayHello(){
+        echo "Hello ";
     }
 }
+trait World{
+    public function sayWorld(){
+        echo "World ";
+    }
+}
+class myHelloWorld  {
+    use Hello, World;
+}
 
-$user1 = new Test;
-$user1->getName();
-$user1->GetStatus();
+$obj = new myHelloWorld();
+$obj->sayHello();
+$obj->sayWorld();
+
 
 ?>
 </body>
